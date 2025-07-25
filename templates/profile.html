@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>بروفايلي</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #fffbe7 0%, #e4f8fa 100%);
+      min-height: 100vh;
+      color: #22585c;
+      font-family: 'Tajawal', Arial, sans-serif;
+    }
+    .profile-container {
+      max-width: 540px;
+      margin: 60px auto 32px auto;
+      background: rgba(255,255,255,0.99);
+      border-radius: 1.8em;
+      box-shadow: 0 10px 46px 0 #c1f7fd35, 0 2px 8px #bcefff33;
+      padding: 0 0 2em 0;
+      border: 1.4px solid #e3f6ff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner {
+      background: linear-gradient(92deg, #43e7fe 20%, #ffe081 100%);
+      height: 92px;
+      border-radius: 1.8em 1.8em 0 0;
+      position: relative;
+    }
+    .profile-pic {
+      width: 98px;
+      height: 98px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3em;
+      color: #19db99;
+      margin: -49px auto 8px auto;
+      box-shadow: 0 6px 26px #009fbb33;
+      border: 5px solid #fff;
+      position: relative;
+      z-index: 1;
+      animation: profile-pop 1.2s cubic-bezier(.41,2.08,.67,.93);
+    }
+    @keyframes profile-pop {
+      0% { transform: scale(.78) translateY(21px);}
+      70% { transform: scale(1.10);}
+      100% { transform: scale(1) translateY(0);}
+    }
+    h2 {
+      color: #0197a8;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      letter-spacing: .5px;
+      font-size: 1.45em;
+      margin-top: 6px;
+      text-shadow:0 1px 9px #eeffef1a;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.2em;
+      margin: 1.7em 0 1.2em 0;
+    }
+    .stat-box {
+      flex: 1 1 0px;
+      background: linear-gradient(97deg, #f3feff 60%, #fffae1 100%);
+      border-radius: 1.2em;
+      padding: 1em 0.2em;
+      box-shadow: 0 2px 16px #8eeaf755;
+      color: #009fbb;
+      font-weight: 600;
+      min-width: 108px;
+      border:1px solid #e9f3f7;
+    }
+    .stat-box span {
+      display: block;
+      color: #fc7c46;
+      font-size: 1.02em;
+      margin-bottom: 0.32em;
+      font-weight: 400;
+    }
+    .btn-outline-danger, .btn-outline-primary {
+      border-radius: 2em;
+      min-width: 105px;
+      font-weight: 600;
+      margin: 0.6em 0.3em 0 0.3em;
+      border-width:2px;
+    }
+    .btn-outline-danger {color:#ef4343;}
+    .btn-outline-primary {color:#009fbb;}
+    .profile-note {
+      font-size: 1.11em;
+      color: #00a9a3;
+      background: #f2fdff;
+      border-radius: 1em;
+      margin-top: 2em;
+      padding: 1.07em;
+      box-shadow: 0 2px 8px #a7f0fc2e;
+      letter-spacing:.02em;
+      font-weight: 600;
+    }
+    .my-intentions-title {
+      color:#009fbb;
+      margin: 2em 0 1em 0;
+      font-size:1.15em;
+      font-weight:700;
+      letter-spacing:0.5px;
+      text-align:right;
+    }
+    .my-intentions-list {
+      text-align: right;
+    }
+    .intention-card {
+      background: linear-gradient(100deg, #fff 87%, #e2fcf8 100%);
+      border-radius: 1em;
+      box-shadow: 0 2px 18px #eaf7fa;
+      padding: 1.13em 1em .6em 1em;
+      margin-bottom: 1.11em;
+      border-right: 5px solid #43e7fe;
+      position: relative;
+      transition:.11s;
+    }
+    .intention-card:hover {transform:scale(1.016);}
+    .intention-badge {
+      font-size: .98em;
+      border-radius: 1em;
+      padding: 0.22em 0.8em;
+      vertical-align: middle;
+      margin-right: 0.5em;
+      font-weight:500;
+      background: #e4fcff;
+      color:#36a598;
+      border:none;
+    }
+    .intention-badge.bg-info { background: #e0f9ff; color: #21b1c5; }
+    .intention-badge.bg-secondary { background: #ececec; color: #bbb; }
+    .intention-meta {
+      color: #b0b6b7;
+      font-size: .95em;
+    }
+    .intention-actions {
+      margin-top: .7em;
+      display: flex;
+      gap: 0.5em;
+      flex-wrap: wrap;
+    }
+    .btn-sm {
+      border-radius: 2em!important;
+      min-width: 80px;
+      font-size:.98em;
+      padding:.38em 1em;
+    }
+    .comments-box {
+      background:linear-gradient(90deg, #fafdff 80%, #ebfaff 100%);
+      border-radius:.9em;
+      padding:.7em 1em .6em 1em;
+      margin-top: .8em;
+      margin-bottom:.5em;
+      box-shadow:0 2px 8px #e4fcff17;
+    }
+    .comment-box {
+      border-bottom:1px dashed #d4f8f3;
+      padding-bottom:0.25em;
+      margin-bottom: .4em;
+      color:#008d91;
+      font-size:.99em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .comment-box .comment-author {
+      font-weight:500;
+      color:#21b1c5;
+      margin-left:.32em;
+    }
+    .comment-box .text-secondary {
+      color:#a7bab8!important;
+      font-size:.92em;
+    }
+    @media (max-width:600px) {
+      .profile-container { padding:0 0.1em 1.2em 0.1em; }
+      .profile-pic { width:70px; height:70px; font-size:1.8em;}
+      h2 { font-size:1.09em; }
+      .stat-box { min-width: 86px; font-size:0.95em;}
+      .banner { height:65px;}
+      .my-intentions-title { margin:1.4em 0 .7em 0;}
+      .intention-actions { flex-direction:column; gap:0.4em;}
+    }
+  </style>
+</head>
+<body>
+<div class="profile-container shadow">
+  <div class="banner"></div>
+  <div class="profile-pic">
+    <span>👤</span>
+  </div>
+  <h2>{{ username }}</h2>
+  <div class="stat-row">
+    <div class="stat-box">
+      <span>النوايا المنشورة</span>
+      {{ intentions_count }}
+    </div>
+    <div class="stat-box">
+      <span>تعليقاتك</span>
+      {{ comments_count }}
+    </div>
+  </div>
+  <div>
+    <a href="/" class="btn btn-outline-primary">↩ رجوع للرئيسية</a>
+    <a href="/logout" class="btn btn-outline-danger">خروج</a>
+  </div>
+  <div class="my-intentions-title">نواياي</div>
+  <div class="my-intentions-list">
+    {% if my_intentions %}
+      {% for i in my_intentions %}
+        <div class="intention-card">
+          <div class="d-flex justify-content-between align-items-center flex-wrap">
+            <div style="color:#0197a8;font-weight:600;">
+              <span class="intention-badge badge {% if i[3] %}bg-info{% else %}bg-secondary{% endif %}">
+                {% if i[3] %}عامة{% else %}خاصة{% endif %}
+              </span>
+              {{ i[1] }}
+            </div>
+            <span class="intention-meta">{{ i[2] }}</span>
+          </div>
+          <div class="intention-actions">
+            <a href="/edit/{{ i[0] }}" class="btn btn-outline-success btn-sm">تعديل</a>
+            <a href="/delete/{{ i[0] }}" class="btn btn-outline-danger btn-sm"
+               onclick="return confirm('هل أنت متأكد أنك تريد حذف هذه النية؟');">حذف</a>
+          </div>
+          <div class="comments-box mt-2">
+            <div style="font-weight:600;color:#19db99;margin-bottom:.3em;">التعليقات:</div>
+            {% if comments_for_my_intentions[i[0]] %}
+              {% for c in comments_for_my_intentions[i[0]] %}
+                <div class="comment-box">
+                  <span><span class="comment-author">مجهول:</span> {{ c[0] }}</span>
+                  <span class="text-secondary small float-start">{{ c[1] }}</span>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="text-muted" style="color:#bbb;">لا توجد تعليقات بعد</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="alert alert-info">لم تنشر أي نية بعد.</div>
+    {% endif %}
+  </div>
+  <div class="profile-note mt-3">
+    🚀 <b>استمر في نشر النوايا والتعليقات... لعل نيتك تلهم غيرك يومًا ما!</b>
+  </div>
+</div>
+</body>
+</html>

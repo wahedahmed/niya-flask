@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>نوايا</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="header-blur">
+  <span class="header-logo">
+    <span class="logo-emoji">💫</span>
+    النوايا
+  </span>
+  <div class="header-actions">
+    <a href="/profile" title="بروفايلي">بروفايلي</a>
+    <a href="/logout">خروج</a>
+  </div>
+</div>
+
+<div class="feed">
+  <div class="story-carousel">
+    <div class="story-circle" title="نية اليوم">🌟<div>نية اليوم</div></div>
+    <div class="story-circle" title="اقتباس">💡<div>اقتباس</div></div>
+    <div class="story-circle" title="ملهمة">💙<div>ملهمة</div></div>
+    <div class="story-circle" title="دعم">🤲<div>دعم</div></div>
+    <div class="story-circle" title="أصدقاء">👫<div>أصدقاء</div></div>
+  </div>
+
+  <div class="alert alert-info text-center">
+    أهلاً <b>{{ username }}</b>! هنا تقدر تكتب نيتك، تعلق وتدعم غيرك… إحنا معاك دايمًا ♥️
+  </div>
+
+  {% for n in intentions %}
+    <div class="feed-card">
+      <div class="feed-avatar" title="مجهول">🤍</div>
+      <div class="feed-body">
+        <div class="feed-header">
+          <span class="feed-name">مجهول</span>
+          <span class="feed-time">{{ n[2] }}</span>
+        </div>
+        <div class="feed-text">{{ n[1] }}</div>
+        <div class="feed-actions">
+          <button class="action-btn like" data-id="{{ n[0] }}">
+            ❤️ <span class="count">{{ likes_dict[n[0]] }}</span>
+          </button>
+          <button class="action-btn share" data-text="{{ n[1]|tojson }}">
+            📤 <span class="count">مشاركة</span>
+          </button>
+          <button class="action-btn" disabled>
+            💬 <span class="count">{{ comments_dict[n[0]]|length }}</span>
+          </button>
+        </div>
+        <div class="comments-section">
+          {% for c in comments_dict[n[0]] %}
+            <div class="comment-box">
+              <span>
+                <span class="comment-author">🤍</span>
+                <span class="comment-text">{{ c[0] }}</span>
+              </span>
+              <span>{{ c[1] }}</span>
+            </div>
+          {% else %}
+            <span class="no-comments">لا يوجد تعليقات بعد</span>
+          {% endfor %}
+        </div>
+        <form method="post" action="/comment/{{ n[0] }}" class="add-comment-form">
+          <input name="comment" placeholder="اكتب تعليق..." required maxlength="140">
+          <button>تعليق</button>
+        </form>
+      </div>
+    </div>
+  {% else %}
+    <div class="alert alert-info">لا توجد نوايا عامة بعد.</div>
+  {% endfor %}
+</div>
+
+<a href="/new" class="fab" title="انشر نية">+ نية</a>
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
