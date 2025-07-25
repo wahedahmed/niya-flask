@@ -1,0 +1,4 @@
+app = "niya-flask"
+
+[build]
+  builder = "Dockerfile"
