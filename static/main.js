@@ -27,7 +27,7 @@ function likeIntention(id, btn) {
 }
 
 function shareIntention(text) {
-  var shareText = "🌟 نية من شبكة النوايا:\n" + text + "\nجرب الموقع: https://niya.example.com";
+  var shareText = "🌟 نية من شبكة النوايا:\n" + text + "\nجرب الموقع: ";
   if (navigator.share) {
     navigator.share({
       title: "شبكة النوايا",
